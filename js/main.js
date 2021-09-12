@@ -142,7 +142,7 @@ function AddEscutadorDeEvento(opcao){
                 console.log("tabela pai depois de remover: ", varTablePai2);
                 console.log("adiciona mais duas TR na tabela... ");
                 
-                if(opcao === 1){ 
+                if(opcao === 0){ 
                     let y = EmbaralharArray(perguntasParaPessoaFisicaNaoObrigatorias);
                     varTablePai2.appendChild(Tr(y[1]));
                     varTablePai2.appendChild(Tr(y[0]));
