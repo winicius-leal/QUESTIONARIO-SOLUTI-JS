@@ -3,25 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cover Template · Bootstrap v5.1</title>
+    <title>questionário - SOLUTI</title>
     <!-- link started bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-   
     <!-- Custom styles for this template -->
-    <link href="main.css" rel="stylesheet">
-
+    <link href="css/main.css" rel="stylesheet">
     <!-- FONT AEWOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   </head>
 
   <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light header ">
-            
+    <!-- INICIO NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light header ">    
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
       <div class="collapse navbar-collapse  d-flex justify-content-center" id="navbarNav">
         <img src="img/Logo_horizontal_23x.png" alt="" width="150px" height="60px" class="p-2"> 
         <ul class="navbar-nav" >
@@ -37,26 +33,23 @@
         </ul>
       </div>
     </nav>
-
+    <!-- FIM DA NAVBAR -->
        
-    <!--CONTEUDO-->
+    <!--INICIO CONTEUDO-->
     <div class="row align-items-center bg-white ">
-      
       <div class="col-3 text-center">
-          
+
       </div>
       
       <div class="col text-center">
-        
+        <!--JUMBOTROM INICIO-->
         <div class="shadow-lg p-3 mb-5 rounded mt-5 bg-light">
-          
           <div class="jumbotron jumbotron-fluid">
             <div class="container">
               <h1 class="display-4">Seja Bem Vindo!</h1>
               <p class="lead">Para iniciar o questionário, basta inserir abaixo o número da solicitação</p>
             </div>
           </div>
-
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Número da Solicitação</span>
@@ -64,29 +57,26 @@
             <input name="solicitation" type="text" class="form-control" placeholder="" id="input-solicitation" max="2">
             <button type="button" id="button-solicitation" class="btn btn-success">Enviar</button>
           </div>
-
         </div>
-
+        <!--JUMBOTROM FIM-->
+        <!--JUMBOTROM INICIO-->
         <div class="shadow-lg p-3 mb-5 rounded mt-5 invisivel bg-light" id="type-certificate">
           <div class="jumbotron jumbotron-fluid">
             <div class="container">
               <h1 class="display-4">Qual o tipo de certificado ?</h1>
-              
             </div>
           </div>
-          
-          <form class="form-inline">
-                      
+          <form class="form-inline">      
             <select id="select-form" class="custom-select custom-select-lg mb-3">
               <option selected>SELECIONE...</option>
               <option value="1">PESSOA FÍSICA</option>
               <option value="2">PESSOA JURÍDICA</option>
             </select>
-
             <button id="button-certificate" type="submit" class="btn btn-success my-1">Gerar Perguntas</button>
           </form>
         </div>
-
+        <!--JUMBOTROM FIM-->
+        <!--TABLE INICIO-->
         <div class="invisivel shadow-lg  mb-5 bg-light rounded mt-5" id="table" >
           <table class="table">
             <thead id="header-table">
@@ -96,21 +86,24 @@
               </tr>
             </thead> 
             <tbody id="tbody">
-              
             </tbody>
           </table>
         </div>
-
+        <!--TABLE FIM-->
       </div>
       
       <div class="col-3">
 
       </div>
+
     </div>
-    
+    <!--FIM CONTEUDO-->  
+
+    <!--BOOTSTRAP-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <!--JS-->
     <script src="js/main.js"></script>
   </body>
 </html>

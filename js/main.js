@@ -11,104 +11,71 @@ buttonNumberSolicitation.addEventListener("click", function(){
     typeCertificate.classList.remove("invisivel");
 });
 
-
-
 var buttonTypeCertificate = document.querySelector("#button-certificate");
 
 buttonTypeCertificate.addEventListener("click", function(event){
     event.preventDefault();
-    console.log("click do botao tipo de certificado acionado");
-
     var selectForm = document.querySelector("#select-form");
     var selectForm = selectForm.value;
-
     console.log(selectForm);
-
     switch (selectForm) {
-        case 'Selecione...':
+        case 'SELECIONE...':
             alert("Selecione o tipo de certificado!");
         break;
         case '1':
-            console.log("Perguntas para pessoa fisica");
             var table = document.querySelector("#table");
             table.classList.remove("invisivel");
-            criarTabelaParaPessoaFisica();
+            createTableFromPhysicalPerson();
           break;
         case '2':
-            console.log("Perguntas para pessoa juridica");
             var table = document.querySelector("#table");
             table.classList.remove("invisivel");
-            criarTabelaParaPessoaJuridica();
+            createTableForLegalEntity();
         break;
-        
     }
-      
-
 });
 
-function criarTabelaParaPessoaFisica (){
-    let fisico = 0;
-    var aleatorio = EmbaralharArray(perguntasParaPessoaFisicaObrigatorias);
-    var aleatorioN = EmbaralharArray(perguntasParaPessoaFisicaNaoObrigatorias);
-    aleatorio.push(aleatorioN[0]);
-    aleatorio = EmbaralharArray(aleatorio);
-    for(i=0; i < aleatorio.length; i++){
+function createTableFromPhysicalPerson (){
+    let PhysicalPerson = 0;
+    var questionRandomic = shuffleArray(perguntasParaPessoaFisicaObrigatorias);
+    var questionRandomicN = shuffleArray(perguntasParaPessoaFisicaNaoObrigatorias);
+    questionRandomic.push(questionRandomicN[0]);
+    questionRandomic = shuffleArray(questionRandomic);
+    for(i=0; i < questionRandomic.length; i++){
         var table = document.querySelector("#tbody");
-        table.appendChild(Tr(aleatorio[i]));   
+        table.appendChild(Tr(questionRandomic[i]));   
     }
-    console.log("PRE EVENTOS", table);
-    AddEscutadorDeEvento(fisico);
+    AddEscutadorDeEvento(PhysicalPerson);
 }
 
-function criarTabelaParaPessoaJuridica (){
-    let juridico = 1;
-    var aleatorio2 = EmbaralharArray(perguntasParaPessoaJuridicaObrigatorias);
-    var aleatorioN2 = EmbaralharArray(perguntasParaPessoaJuridicaNaoObrigatorias);
-    aleatorio2.push(aleatorioN2[0]);
-    aleatorio2 = EmbaralharArray(aleatorio2);
-    for(i=0; i < aleatorio2.length; i++){
+function createTableForLegalEntity (){
+    let legalEntity = 1;
+    var questionRandomic2 = shuffleArray(perguntasParaPessoaJuridicaObrigatorias);
+    var questionRandomicN2 = shuffleArray(perguntasParaPessoaJuridicaNaoObrigatorias);
+    questionRandomic2.push(questionRandomicN2[0]);
+    questionRandomic2 = shuffleArray(questionRandomic2);
+    for(i=0; i < questionRandomic2.length; i++){
         var table = document.querySelector("#tbody");
-        table.appendChild(Tr(aleatorio2[i]));   
+        table.appendChild(Tr(questionRandomic2[i]));   
     }
-    console.log("PRE EVENTOS", table);
-    AddEscutadorDeEvento(juridico);
+    AddEscutadorDeEvento(legalEntity);
 }
 
 function AddEscutadorDeEvento(opcao){
-    console.log(opcao);
-    if(opcao == 1){
-        console.log("SOU DO TIPO JURIDICO");
-    }else{
-        console.log("SOU DO TIPO FISICO");
-    }
-
     let buttonCheck = document.querySelectorAll(".style-check");
-    let buttonBan = document.querySelectorAll(".style-close");
+    let buttonFalse = document.querySelectorAll(".style-close");
     
-    console.log(buttonCheck);
-    /*ESCUTADOR DE EVENTOS PARA CADA CHECK*/
+    /*ESCUTADOR DE EVENTOS PARA CADA CHECK VERDADEIRO*/
     for(let iteracao = 0; iteracao < buttonCheck.length; iteracao++){
         buttonCheck[iteracao].addEventListener("click", function(){
-            console.log("Quantidade de iterações: ",iteracao);
-            console.log("Botao Selecionado: ", buttonCheck[iteracao]);
-            console.log("Td do botao selecionado: ", buttonCheck[iteracao].parentNode);
-            let varTablePai = buttonCheck[iteracao].parentNode.parentNode.parentNode;
-            console.log("variavel da tabela pai de todos os TR: ", varTablePai);
-            let varTrSelecionada = buttonCheck[iteracao].parentNode.parentNode;
-            console.log("variavel da TR selecionada: ", varTrSelecionada);
-            varTrSelecionada.classList.add("fadeOut");
-            console.log("adiciona classe para esmaecer: ");
+            let tablePai = buttonCheck[iteracao].parentNode.parentNode.parentNode;
+            let rowSelected = buttonCheck[iteracao].parentNode.parentNode;
+            rowSelected.classList.add("fadeOut");
             setTimeout(function(){
-                varTablePai.removeChild(varTrSelecionada);
+                tablePai.removeChild(rowSelected);
             }, 1000);
-            console.log("TR removida: ",varTrSelecionada);
-            console.log("tabela atualizada: ", varTablePai);
-            console.log(buttonCheck);
-            console.log("FIM DE UM EVENTO");
-
             AddEscutadorDeEvento(opcao);
             let fim = document.querySelectorAll(".question");
-
             if(fim.length == 1){
                 console.log("QUESTIONARIO FINALIZADO, RECARREGANDO... ");
                 document.location.reload(true);
@@ -117,46 +84,28 @@ function AddEscutadorDeEvento(opcao){
         });        
     }
     
-    /*ESCUTADOR DE EVENTOS PARA CADA BAN*/
-    for(let iteracao2 = 0; iteracao2 < buttonBan.length; iteracao2++){
-        buttonBan[iteracao2].addEventListener("click", function(){
-            console.log("Quantidade de iterações: ",iteracao2);
-            console.log("Botao Selecionado: ", buttonCheck[iteracao2]);
-            console.log("Td do botao selecionado: ", buttonCheck[iteracao2].parentNode);
-            let varTablePai2 = buttonBan[iteracao2].parentNode.parentNode.parentNode;
-            console.log("variavel da tabela pai de todos os TR: ", varTablePai2);
-            let varTrSelecionada2 = buttonBan[iteracao2].parentNode.parentNode;
-            console.log("variavel da TR selecionada: ", varTrSelecionada2);
-            varTrSelecionada2.classList.add("fadeOut");
-            console.log("adiciona classe para esmaecer: ");
+    /*ESCUTADOR DE EVENTOS PARA CADA CHECK FALSO*/
+    for(let iteracao2 = 0; iteracao2 < buttonFalse.length; iteracao2++){
+        buttonFalse[iteracao2].addEventListener("click", function(){
+            let tablePai2 = buttonFalse[iteracao2].parentNode.parentNode.parentNode;
+            let rowSelected2 = buttonFalse[iteracao2].parentNode.parentNode;
+            rowSelected2.classList.add("fadeOut");
             setTimeout(function(){
-                console.log("depois de 2 segundos remove a TR... ");
-                console.log("tabela pai antes de remover: ", varTablePai2);
-                varTablePai2.removeChild(varTrSelecionada2);
-                console.log("tabela pai depois de remover: ", varTablePai2);
-                console.log("adiciona mais duas TR na tabela... ");
-                
+                tablePai2.removeChild(rowSelected2);               
                 if(opcao === 0){ 
-                    let y = EmbaralharArray(perguntasParaPessoaFisicaNaoObrigatorias);
-                    varTablePai2.appendChild(Tr(y[1]));
-                    varTablePai2.appendChild(Tr(y[0]));
+                    let y = shuffleArray(perguntasParaPessoaFisicaNaoObrigatorias);
+                    tablePai2.appendChild(Tr(y[1]));
+                    tablePai2.appendChild(Tr(y[0]));
                 }else{ 
-                    let z = EmbaralharArray(perguntasParaPessoaJuridicaNaoObrigatorias);
-                    varTablePai2.appendChild(Tr(z[1]));
-                    varTablePai2.appendChild(Tr(z[0]));
+                    let z = shuffleArray(perguntasParaPessoaJuridicaNaoObrigatorias);
+                    tablePai2.appendChild(Tr(z[1]));
+                    tablePai2.appendChild(Tr(z[0]));
                 }
-        
-                console.log("tabela pai atualizada depois de adicionar 2 TR: ", varTablePai2);
-                console.log(buttonBan);
                 AddEscutadorDeEvento(opcao);
-            }, 2000);
-                      
+            }, 1000);              
         });        
     }
-
-   
 }
-
 
 function Tr(value) {
     let tr = document.createElement('tr');
@@ -165,14 +114,12 @@ function Tr(value) {
     tr.appendChild(Td(value));
     return tr;
 }
-
 function Tdi(){
     let td = document.createElement('td');
     td.appendChild(icheck());
-    td.appendChild(iban());
+    td.appendChild(ifalse());
     return td;
 }
-
 function Td(value){
     let td = document.createElement('td');
     td.textContent = value;
@@ -188,13 +135,25 @@ function icheck(value){
     return icheck;
 }
 
-function iban(value){
-    let iban = document.createElement('i');
-    iban.classList.add("fas");
-    iban.classList.add("fa-thumbs-down");
-    iban.classList.add("style-close");
-    iban.textContent = value;
-    return iban;
+function ifalse(value){
+    let ifalse = document.createElement('i');
+    ifalse.classList.add("fas");
+    ifalse.classList.add("fa-thumbs-down");
+    ifalse.classList.add("style-close");
+    ifalse.textContent = value;
+    return ifalse;
+}
+
+function shuffleArray(array) {
+    // Loop em todos os elementos
+for (let i = array.length - 1; i > 0; i--) {
+        // Escolhendo elemento aleatório
+    const j = Math.floor(Math.random() * (i + 1));
+    // Reposicionando elemento
+    [array[i], array[j]] = [array[j], array[i]];
+}
+// Retornando array com aleatoriedade
+return array;
 }
 
 
@@ -253,14 +212,3 @@ var perguntasParaPessoaJuridicaNaoObrigatorias = [
 ];
 
 
-function EmbaralharArray(array) {
-    // Loop em todos os elementos
-for (let i = array.length - 1; i > 0; i--) {
-        // Escolhendo elemento aleatório
-    const j = Math.floor(Math.random() * (i + 1));
-    // Reposicionando elemento
-    [array[i], array[j]] = [array[j], array[i]];
-}
-// Retornando array com aleatoriedade
-return array;
-}
