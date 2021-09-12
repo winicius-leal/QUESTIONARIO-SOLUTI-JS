@@ -1,0 +1,53 @@
+.header {
+  background-color: #107266;
+}
+.header-decoration {
+  text-color: #fff;
+  margin: 15px;
+  margin-left: 30px;    
+}
+
+  .style-check{
+    font-size: 1em; 
+    color: green; 
+    padding:15px ;
+  }
+
+  .style-close{
+    font-size: 1em; 
+    color: red;
+  }
+
+/*invisivel*/
+.invisivel{
+    display: none;
+}
+
+/*esmaecer*/
+.fadeOut {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+h1{
+  color: #107266;
+  font-family:"Blippo, fantasy";
+}
+p{
+  color: #107266;
+  font-family:"Blippo, fantasy";
+  font-size: 1.6em;
+}
+th{
+  color: #107266;
+  font-family:"Blippo, fantasy";
+  font-size: 1.6em;
+}
+.question{
+  color: #107266;
+  font-family:"Blippo, fantasy";
+  font-size: 1.6em;
+}
+.size{
+  font-size: 1.0em;
+}
