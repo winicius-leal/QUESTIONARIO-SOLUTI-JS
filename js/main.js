@@ -1,20 +1,14 @@
-var buttonSolicitation = document.querySelector("#button-solicitation");
+var buttonNumberSolicitation = document.querySelector("#button-solicitation");
 
-buttonSolicitation.addEventListener("click", function(){
-    console.log("evento click acionado");
-    var inputSolicitation = document.querySelector("#input-solicitation");
-    var NumSolicitation = inputSolicitation.value;
-
-    if (NumSolicitation == "") {
+buttonNumberSolicitation.addEventListener("click", function(){
+    var inputNumberSolicitation = document.querySelector("#input-solicitation");
+    var NumSolicitation = inputNumberSolicitation.value;
+    if (NumSolicitation == "" || NumSolicitation.length < 4) {
         alert("Número da solicitação inválida");
-        return false;
+        return;
     }
-
     var typeCertificate = document.querySelector("#type-certificate");
-
     typeCertificate.classList.remove("invisivel");
-   
-
 });
 
 
