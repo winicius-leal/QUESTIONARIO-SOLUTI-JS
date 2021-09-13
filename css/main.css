@@ -31,23 +31,32 @@
 
 h1{
   color: #107266;
-  font-family:"Blippo, fantasy";
+  font-family:"Nolan Next";
+  font-weight: bold;
+  font-size: 2.6em;
+
 }
-p{
-  color: #107266;
-  font-family:"Blippo, fantasy";
-  font-size: 1.6em;
-}
+
 th{
   color: #107266;
-  font-family:"Blippo, fantasy";
+  font-family:"Nolan Next";
   font-size: 1.6em;
+  font-weight: bold;
+}
+tr{
+  text-align: left;
 }
 .question{
   color: #107266;
-  font-family:"Blippo, fantasy";
+  font-family:"Nolan Next";
   font-size: 1.6em;
+  font-weight: bold;
 }
 .size{
   font-size: 1.0em;
+}
+
+button{
+  background-color: chartreuse;
+  color: aqua;
 }

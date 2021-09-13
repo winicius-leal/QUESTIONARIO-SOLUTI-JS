@@ -21,15 +21,12 @@
       <div class="collapse navbar-collapse  d-flex justify-content-center" id="navbarNav">
         <img src="img/Logo_horizontal_23x.png" alt="" width="180px" height="70px" class="p-2"> 
         <ul class="navbar-nav" >
-          <li class="nav-item active">
-            <a class="nav-link header-decoration rounded border-white size  text-white " href=""><i class="fas fa-home"></i><strong> QUESTIONÁRIO</strong></a>
-          </li>
+          
+   
           <li class="nav-item active">
             <a class="nav-link header-decoration rounded border-white size  text-white " href=""><i class="fas fa-sync"></i><strong> REINICIAR QUESTIONÁRIO</strong></a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link header-decoration rounded border-white size  text-white " href=""><i class="fas fa-share-square"></i><strong> SAIR</strong></a>
-          </li>
+  
         </ul>
       </div>
     </nav>
@@ -46,16 +43,28 @@
         <div class="shadow-lg p-3 mb-5 rounded mt-5 bg-light">
           <div class="jumbotron jumbotron-fluid">
             <div class="container">
-              <h1 class="display-4">Seja Bem Vindo!</h1>
-              <p class="lead">Para iniciar o questionário, basta inserir abaixo o número da solicitação</p>
+              <h1 class="">Insira o número da solicitação</h1>
+              <p class="lead"></p>
             </div>
           </div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Número da Solicitação</span>
+          <div class="container">
+            <div class="row">
+              <div class="col-2">
+                
+              </div>
+              <div class="col-8">
+                <div class="input-group mb-3 col">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Número da Solicitação</span>
+                  </div>
+                  <input name="solicitation" type="text" class="form-control" placeholder="" id="input-solicitation" max="2">
+                  <button type="button" id="button-solicitation" class="btn btn-success">Enviar</button>
+                </div>
+              </div>
+              <div class="col-2">
+                
+              </div>
             </div>
-            <input name="solicitation" type="text" class="form-control" placeholder="" id="input-solicitation" max="2">
-            <button type="button" id="button-solicitation" class="btn btn-success">Enviar</button>
           </div>
         </div>
         <!--JUMBOTROM FIM-->
@@ -63,7 +72,7 @@
         <div class="shadow-lg p-3 mb-5 rounded mt-5 invisivel bg-light" id="type-certificate">
           <div class="jumbotron jumbotron-fluid">
             <div class="container">
-              <h1 class="display-4">Qual o tipo de certificado ?</h1>
+              <h1 class="">Qual o tipo de certificado ?</h1>
             </div>
           </div>
           <form class="form-inline">      
@@ -77,15 +86,15 @@
         </div>
         <!--JUMBOTROM FIM-->
         <!--TABLE INICIO-->
-        <div class="invisivel shadow-lg  mb-5 bg-light rounded mt-5" id="table" >
-          <table class="table">
+        <div class="invisivel shadow-lg  mb-5 bg-light rounded mt-5 text-md-left" id="table" >
+          <table class="table text-md-left">
             <thead id="header-table">
               <tr>
                 <th scope="col">CHECK</th>
                 <th scope="col">PERGUNTAS</th>
               </tr>
             </thead> 
-            <tbody id="tbody">
+            <tbody id="tbody" class="text-md-left">
             </tbody>
           </table>
         </div>
