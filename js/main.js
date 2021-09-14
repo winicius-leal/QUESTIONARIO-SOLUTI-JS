@@ -9,6 +9,8 @@ buttonNumberSolicitation.addEventListener("click", function(){
     }
     var typeCertificate = document.querySelector("#type-certificate");
     typeCertificate.classList.remove("invisivel");
+    document.querySelector("#button-solicitation").disabled = true;
+    document.querySelector("#input-solicitation").disabled = true;
 });
 
 var buttonTypeCertificate = document.querySelector("#button-certificate");
@@ -26,11 +28,13 @@ buttonTypeCertificate.addEventListener("click", function(event){
             var table = document.querySelector("#table");
             table.classList.remove("invisivel");
             createTableFromPhysicalPerson();
+            document.querySelector("#button-certificate").disabled = true;
           break;
         case '2':
             var table = document.querySelector("#table");
             table.classList.remove("invisivel");
             createTableForLegalEntity();
+            document.querySelector("#button-certificate").disabled = true;
         break;
     }
 });
