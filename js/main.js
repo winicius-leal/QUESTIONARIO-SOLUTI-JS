@@ -144,6 +144,7 @@ function ifalse(value){
     ifalse.classList.add("fas");
     ifalse.classList.add("fa-thumbs-down");
     ifalse.classList.add("style-close");
+    ifalse.classList.add("m-3");
     ifalse.textContent = value;
     return ifalse;
 }
